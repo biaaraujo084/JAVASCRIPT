@@ -1,0 +1,47 @@
+código 19-03
+class Funcionario {
+    constructor(nome, salario, dataAdmissao) {
+        this.nome = nome;
+        this.salario = salario;
+        this.dataAdmissao = dataAdmissao;
+    }
+
+    calcularBonus() {
+        return this.salario * 0.1;
+    }
+
+    exibirDetalhes() {
+        console.log(`Nome: ${this.nome}`);
+        console.log(`Salário: R$ ${this.salario.toFixed(2)}`);
+        console.log(`Data de Admissão: ${this.dataAdmissao}`);
+        console.log(`Bônus: R$ ${this.calcularBonus().toFixed(2)}`);
+        console.log("-----------------------------");
+    }
+}
+
+class Gerente extends Funcionario {
+    constructor(nome, salario, dataAdmissao, departamento) {
+        super(nome, salario, dataAdmissao);
+        this.departamento = departamento;
+    }
+
+    calcularBonus() {
+        return this.salario * 0.2;
+    }
+
+    exibirDetalhes() {
+        super.exibirDetalhes();
+        console.log(`Departamento: ${this.departamento}`);
+        console.log("-----------------------------");
+    }
+}
+
+// Criando objetos
+const funcionario1 = new Funcionario("Pedro Santos", 3000, "10/03/2020");
+const funcionario2 = new Funcionario("Beatriz Araújo", 2800, "02/02/2022");
+const gerente1 = new Gerente("Heitor Pereira", 6000, "22/09/2018", "TI");
+
+// Exibindo detalhes no console
+funcionario1.exibirDetalhes();
+funcionario2.exibirDetalhes();
+gerente1.exibirDetalhes();
